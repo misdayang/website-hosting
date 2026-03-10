@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大揚策略投資顧問 Dayang Strategy Investment Consulting</title>
+  <meta
+    name="description"
+    content="大揚策略投資顧問提供財務審核、策略評估、資源整合、企業E化、募資與IPO輔導，以及政府補助顧問服務，陪伴企業穩健前行。"
+  />
+  <style>
+    :root {
+      --color-sail-white: #efedec;
+      --color-wind-blue: #00527f;
+      --color-deep-sea: #00435a;
+      --color-gold: #ae874d;
+    
+      --color-text: #183244;
+      --color-text-soft: #4c6473;
+      --color-white: #ffffff;
+      --color-border: rgba(0, 67, 90, 0.12);
+      --color-border-light: rgba(255, 255, 255, 0.16);
+    
+      --bg-light: #f7f5f2;
+      --bg-light-alt: #f2efeb;
+      --bg-dark: #0d3649;
+      --bg-dark-2: #0a2a39;
+    
+      --shadow-soft: 0 16px 40px rgba(0, 43, 64, 0.08);
+      --shadow-card: 0 18px 50px rgba(0, 43, 64, 0.10);
+    
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 32px;
+    
+      --container: 1240px;
+      --container-narrow: 860px;
+    
+      --transition: 280ms ease;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      margin: 0;
+      color: var(--color-text);
+      background: var(--color-sail-white);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.7;
+    }
+    
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+    
+    .container {
+      width: min(calc(100% - 48px), var(--container));
+      margin: 0 auto;
+    }
+    
+    .section-narrow {
+      max-width: var(--container-narrow);
+      margin: 0 auto;
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    .section-light {
+      background: var(--bg-light);
+    }
+    
+    .section-light-alt {
+      background: var(--bg-light-alt);
+    }
+    
+    .section-dark {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)),
+        linear-gradient(135deg, var(--bg-dark), var(--bg-dark-2));
+      color: rgba(255,255,255,0.92);
+    }
+    
+    section {
+      position: relative;
+      padding: 128px 0;
+    }
+    
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--color-gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    
+    .section-title {
+      margin: 0;
+      font-family: "Noto Serif TC", "Times New Roman", serif;
+      font-size: clamp(2rem, 3.4vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+    }
+    
+    .section-description {
+      margin: 22px 0 0;
+      max-width: 720px;
+      color: var(--color-text-soft);
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+    
+    .section-description-centered {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .section-heading {
+      margin-bottom: 56px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 156px;
+      min-height: 52px;
+      padding: 14px 24px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        opacity var(--transition);
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .btn-primary {
+      background: var(--color-wind-blue);
+      color: var(--color-white);
+      box-shadow: 0 14px 30px rgba(0, 82, 127, 0.18);
+    }
+    
+    .btn-primary:hover {
+      background: var(--color-deep-sea);
+    }
+    
+    .btn-secondary {
+      background: rgba(255,255,255,0.14);
+      color: var(--color-white);
+      border-color: rgba(255,255,255,0.28);
+      backdrop-filter: blur(8px);
+    }
+    
+    .section-light .btn-secondary,
+    .section-light-alt .btn-secondary {
+      background: rgba(255,255,255,0.72);
+      color: var(--color-wind-blue);
+      border-color: rgba(0, 82, 127, 0.14);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--color-gold);
+      color: var(--color-deep-sea);
+    }
+    
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(239, 237, 236, 0.78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 67, 90, 0.08);
+    }
+    
+    .header-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+      min-height: 82px;
+    }
+    
+    .site-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    
+    .site-logo-zh {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-deep-sea);
+      letter-spacing: 0.04em;
+    }
+    
+    .site-logo-en {
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      color: var(--color-gold);
+    }
+    
+    .site-nav {
+      justify-self: center;
+    }
+    
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .nav-list a {
+      position: relative;
+      font-size: 0.96rem;
+      color: var(--color-text);
+      transition: color var(--transition);
+    }
+    
+    .nav-list a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 1px;
+      background: var(--color-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    
+    .nav-list a:hover {
+      color: var(--color-deep-sea);
+    }
+    
+    .nav-list a:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--color-wind-blue);
+      color: var(--color-white);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: background var(--transition), transform var(--transition);
+    }
+    
+    .header-cta:hover {
+      background: var(--color-deep-sea);
+      transform: translateY(-1px);
+    }
+    
+    /* Hero */
+    .hero-section {
+      min-height: 100vh;
+      padding: 0;
+      overflow: hidden;
+      background: var(--bg-dark);
+    }
+    
+    .hero-media {
+      position: absolute;
+      inset: 0;
+    }
+    
+    .hero-video,
+    .hero-video-fallback {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .hero-video {
+      object-fit: cover;
+    }
+    
+    .hero-video-fallback {
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255,255,255,0.12) 0 80px, transparent 81px),
+        radial-gradient(circle at 78% 14%, rgba(255,255,255,0.08) 0 70px, transparent 71px),
+        linear-gradient(to bottom, #d7e8f6 0%, #bdd7e8 20%, #7ea8c0 48%, #2f6788 70%, #0f3347 100%);
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(239,237,236,0.78) 0%, rgba(239,237,236,0.42) 34%, rgba(5,20,28,0.08) 100%),
+        linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(0,0,0,0.18));
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-copy {
+      max-width: 640px;
+      padding: 140px 0 80px;
+    }
+    
+    .hero-title {
+      margin: 0;
+      color: var(--color-deep-sea);
+      font-family: "Noto Serif TC", "Times New Roman", serif;
+      font-size: clamp(3rem, 6vw, 5.9rem);
+      line-height: 1.02;
+      letter-spacing: 0.02em;
+    }
+    
+    .hero-description {
+      margin: 26px 0 0;
+      max-width: 600px;
+      color: rgba(24, 50, 68, 0.88);
+      font-size: 1.12rem;
+      line-height: 1.95;
+    }
+    
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+    
+    /* Vision */
+    .vision-section .section-title {
+      margin-top: 6px;
+    }
+    
+    .vision-tagline-en {
+      margin: 18px 0 0;
+      color: var(--color-gold);
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      font-style: italic;
+    }
+    
+    .vision-tagline-zh {
+      margin: 10px 0 0;
+      font-family: "Noto Serif TC", "Times New Roman", serif;
+      font-size: clamp(1.25rem, 2vw, 1.8rem);
+      color: var(--color-deep-sea);
+    }
+    
+    /* Split sections */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    
+    .split-intro {
+      position: sticky;
+      top: 120px;
+    }
+    
+    .framework-steps {
+      display: grid;
+      gap: 22px;
+    }
+    
+    .framework-item {
+      padding: 28px 30px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.72);
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .framework-number {
+      margin: 0 0 12px;
+      color: var(--color-gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+    
+    .framework-title {
+      margin: 0 0 10px;
+      font-family: "Noto Serif TC", "Times New Roman", serif;
+      font-size: 1.4rem;
+      color: var(--color-deep-sea);
+    }
+    
+    .framework-text {
+      margin: 0;
+      color: var(--color-text-soft);
+      line-height: 1.9;
+    }
+    
+    /* Values */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    .value-card {
+      padding: 30px 26px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.86);
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+    
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+      border-color: rgba(174, 135, 77, 0.3);
+    }
+    
+    .value-en {
+      margin: 0 0 14px;
+      color: var(--color-gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    
+    .value-title {
+      margin: 0 0 10px;
+      font-family: "Noto Serif TC", "Times New Roman", serif;
+      font-size: 1.38rem;
+      color: var(--color-deep-sea);
+    }
+    
+    .value-text {
+      margin: 0;
+      color: var(--color-text-soft);
+    }
+    
+    /* Services */
+    .services-section .eyebrow,
+    .services-section .section-title {
+      color: var(--color-white);
+    }
+    
+    .services-section .eyebrow {
+      color: rgba(255,255,255,0.74);
+    }
+    
+    .services-section .section-description {
+      color: rgba(255,255,255,0.78);
+    }
+    
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    
+    .service-card {
+      height: 100%;
+    }
+    
+    .service-card-inner {
+      height: 100%;
+      padding: 34px 28px 30px;
+      border: 1px solid var(--color-border-light);
+      border-radius: 28px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+    
+    .service-card-inner:hover {
+      transform: translateY(-4px);
+      border-color: rgba(174, 135, 77, 0.42);
+      background: rgba(255,255,255,0.08);
+    }
+    
+    .service-tag {
+      margin: 0 0 18px;
+      color: var(--color-gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    
+    .service-title {
+      margin: 0 0 14px;
+      font-family: "Noto Serif TC", "Times New Roman", serif;
+      font-size: 1.7rem;
+      color: var(--color-white);
+    }
+    
+    .service-target,
+    .service-text {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+    }
+    
+    .service-target {
+      font-size: 0.96rem;
+      line-height: 1.85;
+    }
+    
+    .service-text {
+      margin-top: 16px;
+      line-height: 1.9;
+    }
+    
+    .service-list {
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    
+    .service-list li {
+      position: relative;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.92);
+    }
+    
+    .service-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.8em;
+      width: 7px;
+      height: 1px;
+      background: var(--color-gold);
+    }
+    
+    /* Why */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .why-card {
+      padding: 30px 28px;
+      border-top: 1px solid rgba(174, 135, 77, 0.42);
+      background: rgba(255,255,255,0.38);
+      border-radius: 0 0 22px 22px;
+    }
+    
+    .why-number {
+      margin: 0 0 18px;
+      color: var(--color-gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+    
+    .why-title {
+      margin: 0 0 12px;
+      font-family: "Noto Serif TC", "Times New Roman", serif;
+      font-size: 1.42rem;
+      color: var(--color-deep-sea);
+    }
+    
+    .why-text {
+      margin: 0;
+      color: var(--color-text-soft);
+    }
+    
+    /* About */
+    .about-layout {
+      align-items: center;
+    }
+    
+    .about-content {
+      max-width: 720px;
+    }
+    
+    .about-text {
+      margin: 0;
+      color: var(--color-text-soft);
+      font-size: 1.05rem;
+      line-height: 2;
+    }
+    
+    .about-actions {
+      margin-top: 28px;
+    }
+    
+    /* Contact */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: start;
+    }
+    
+    .contact-section .eyebrow,
+    .contact-section .section-title {
+      color: var(--color-white);
+    }
+    
+    .contact-section .section-description {
+      color: rgba(255,255,255,0.78);
+    }
+    
+    .contact-form-wrap {
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+    
+    .contact-form {
+      display: grid;
+      gap: 18px;
+    }
+    
+    .form-row {
+      display: grid;
+      gap: 8px;
+    }
+    
+    .form-row label {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.86);
+    }
+    
+    .form-row input,
+    .form-row textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.96);
+      color: var(--color-text);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    
+    .form-row input:focus,
+    .form-row textarea:focus {
+      border-color: rgba(174, 135, 77, 0.8);
+      box-shadow: 0 0 0 4px rgba(174, 135, 77, 0.12);
+    }
+    
+    .form-row textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+    
+    .form-actions {
+      padding-top: 6px;
+    }
+    
+    /* Footer */
+    .site-footer {
+      background: #082431;
+      color: rgba(255,255,255,0.84);
+      padding-top: 64px;
+    }
+    
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr 0.9fr;
+      gap: 28px;
+      padding-bottom: 42px;
+    }
+    
+    .footer-brand-name {
+      margin: 0 0 10px;
+      font-family: "Noto Serif TC", "Times New Roman", serif;
+      font-size: 1.3rem;
+      color: var(--color-white);
+    }
+    
+    .footer-brand-tagline {
+      margin: 0 0 8px;
+      color: var(--color-gold);
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 1.06rem;
+      font-style: italic;
+    }
+    
+    .footer-brand-text,
+    .footer-contact p,
+    .footer-nav a {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+    }
+    
+    .footer-heading {
+      margin: 0 0 16px;
+      color: var(--color-white);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    
+    .footer-nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    
+    .footer-nav a:hover {
+      color: var(--color-gold);
+    }
+    
+    .footer-contact {
+      display: grid;
+      gap: 10px;
+    }
+    
+    .footer-bottom {
+      padding: 18px 0 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    .footer-bottom p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.58);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .split-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+    
+      .split-intro {
+        position: static;
+      }
+    
+      .value-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      .service-grid,
+      .why-grid,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    
+      .hero-copy {
+        max-width: 580px;
+      }
+    }
+    
+    @media (max-width: 820px) {
+      section {
+        padding: 96px 0;
+      }
+    
+      .container {
+        width: min(calc(100% - 32px), var(--container));
+      }
+    
+      .header-inner {
+        grid-template-columns: 1fr auto;
+      }
+    
+      .site-nav {
+        display: none;
+      }
+    
+      .hero-content {
+        align-items: flex-start;
+      }
+    
+      .hero-copy {
+        padding: 140px 0 72px;
+      }
+    
+      .hero-title {
+        max-width: 520px;
+      }
+    
+      .hero-description {
+        font-size: 1rem;
+      }
+    
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+    
+      .contact-form-wrap {
+        padding: 22px;
+      }
+    
+      .footer-inner {
+        padding-bottom: 34px;
+      }
+    }
+    
+    @media (max-width: 560px) {
+      .site-header {
+        position: sticky;
+      }
+    
+      .header-inner {
+        min-height: 72px;
+        gap: 16px;
+      }
+    
+      .site-logo-zh {
+        font-size: 0.84rem;
+      }
+    
+      .site-logo-en {
+        font-size: 0.64rem;
+      }
+    
+      .header-cta {
+        min-height: 40px;
+        padding: 0 14px;
+        font-size: 0.82rem;
+      }
+    
+      .hero-copy {
+        padding: 120px 0 64px;
+      }
+    
+      .hero-title {
+        font-size: clamp(2.5rem, 13vw, 4rem);
+        line-height: 1.04;
+      }
+    
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    
+      .btn {
+        width: 100%;
+      }
+    
+      .framework-item,
+      .value-card,
+      .service-card-inner,
+      .contact-form-wrap {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    
+      .section-title {
+        font-size: 2rem;
+      }
+    
+      .section-description,
+      .about-text,
+      .framework-text,
+      .service-text,
+      .why-text {
+        font-size: 0.98rem;
+      }
+    }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="site-logo">
+        <span class="site-logo-zh">大揚策略投資顧問</span>
+        <span class="site-logo-en">DAYANG</span>
+      </a>
+
+      <nav class="site-nav" aria-label="主導覽">
+        <ul class="nav-list">
+          <li><a href="#hero">首頁</a></li>
+          <li><a href="#about">關於大揚</a></li>
+          <li><a href="#services">專業服務</a></li>
+          <li><a href="#contact">聯絡我們</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="header-cta">立即洽詢</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="hero-media">
+        <!-- 之後這裡放影片 -->
+        <!--
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+          <source src="assets/video/dayang-hero.mp4" type="video/mp4" />
+        </video>
+        -->
+        <div class="hero-video-fallback"></div>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Sail Your Success</p>
+          <h1 class="hero-title">陪你揚起成功之帆</h1>
+          <p class="hero-description">
+            結合財務審核、策略評估、資源整合、企業 E 化、募資與 IPO 輔導，
+            以及政府補助顧問服務，協助企業在變動中看清方向，穩健前行。
+          </p>
+
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">了解服務內容</a>
+            <a href="#contact" class="btn btn-secondary">立即洽詢</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="vision-section section-light">
+      <div class="container section-narrow text-center">
+        <p class="eyebrow">Brand Vision</p>
+        <h2 class="section-title">品牌願景</h2>
+        <p class="vision-tagline-en">Sail Your Success</p>
+        <p class="vision-tagline-zh">陪你揚起成功之帆</p>
+        <p class="section-description">
+          我們相信，企業的成長不只是追逐短期風口，而是建立可持續的商業模式，
+          走出更穩健、更長遠的發展航道。大揚以專業與洞察為基礎，
+          陪伴企業在變局中掌握方向、前行有據。
+        </p>
+      </div>
+    </section>
+
+    <section id="framework" class="framework-section section-light-alt">
+      <div class="container split-layout">
+        <div class="split-intro">
+          <p class="eyebrow">From Vision to Action</p>
+          <h2 class="section-title">從願景到實踐</h2>
+          <p class="section-description">
+            以專業、洞察與穩健執行，陪伴企業把方向化為成果。
+          </p>
+        </div>
+
+        <div class="framework-steps">
+          <article class="framework-item">
+            <p class="framework-number">01</p>
+            <h3 class="framework-title">我們期望</h3>
+            <p class="framework-text">
+              陪伴企業揚起成功之帆，走向更清晰而長遠的未來。
+            </p>
+          </article>
+
+          <article class="framework-item">
+            <p class="framework-number">02</p>
+            <h3 class="framework-title">我們透過</h3>
+            <p class="framework-text">
+              以專業打造可持續的商業模式，以洞察走出共伴成功的旅程。
+            </p>
+          </article>
+
+          <article class="framework-item">
+            <p class="framework-number">03</p>
+            <h3 class="framework-title">我們實踐</h3>
+            <p class="framework-text">
+              以前瞻視野掌握機會，以創新思維突破框架，以穩健控管支撐每一步成長。
+            </p>
+          </article>
+
+          <article class="framework-item">
+            <p class="framework-number">04</p>
+            <h3 class="framework-title">我們成就</h3>
+            <p class="framework-text">
+              以長期陪伴為本，與企業共創可持續的成長價值。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="values" class="values-section section-light">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Core Value</p>
+          <h2 class="section-title">核心價值</h2>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card">
+            <p class="value-en">Insight</p>
+            <h3 class="value-title">洞察趨勢</h3>
+            <p class="value-text">
+              精準分析市場動向，預見未來機會。
+            </p>
+          </article>
+
+          <article class="value-card">
+            <p class="value-en">Empathy</p>
+            <h3 class="value-title">理解需求</h3>
+            <p class="value-text">
+              深入理解企業挑戰，量身打造策略方案。
+            </p>
+          </article>
+
+          <article class="value-card">
+            <p class="value-en">Expertise</p>
+            <h3 class="value-title">專業服務</h3>
+            <p class="value-text">
+              以金融與策略實力，提供可落地的解決方案。
+            </p>
+          </article>
+
+          <article class="value-card">
+            <p class="value-en">Partnership</p>
+            <h3 class="value-title">共創雙贏</h3>
+            <p class="value-text">
+              以長期陪伴為本，攜手創造永續成長。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services-section section-dark">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Services</p>
+          <h2 class="section-title">專業服務</h2>
+          <p class="section-description section-description-centered">
+            依據企業不同發展階段，提供從基礎盤點、策略整合到資本升級的分層顧問支持。
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-card-inner">
+              <p class="service-tag">Phase 01</p>
+              <h3 class="service-title">啟航健檢</h3>
+              <p class="service-target">適合對象：需要盤點經營現況、建立穩健基礎的企業。</p>
+              <p class="service-text">
+                從財務審核、營運現況檢視到初步策略分析，協助企業快速掌握體質、
+                辨識風險，建立清晰的改善方向。
+              </p>
+              <ul class="service-list">
+                <li>財務審核與報表檢視</li>
+                <li>營運現況盤點</li>
+                <li>初步策略分析</li>
+                <li>改善方向建議</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-inner">
+              <p class="service-tag">Phase 02</p>
+              <h3 class="service-title">成長整合</h3>
+              <p class="service-target">適合對象：正處於成長階段、需要提升效率與整合資源的企業。</p>
+              <p class="service-text">
+                透過策略評估、資源媒合、企業 E 化與補助案顧問服務，
+                協助企業整合內外部資源，提升競爭力與執行效率。
+              </p>
+              <ul class="service-list">
+                <li>公司策略評估</li>
+                <li>上下游資源媒合</li>
+                <li>企業 E 化規劃</li>
+                <li>政府補助案評估與申請輔導</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-inner">
+              <p class="service-tag">Phase 03</p>
+              <h3 class="service-title">領航升級</h3>
+              <p class="service-target">適合對象：準備進入下一階段擴張、募資或資本市場布局的企業。</p>
+              <p class="service-text">
+                針對企業成長與資本化需求，提供募資規劃、IPO 輔導與中長期藍圖建議，
+                協助企業穩健邁向更高層次的發展。
+              </p>
+              <ul class="service-list">
+                <li>募資規劃</li>
+                <li>IPO 輔導</li>
+                <li>資本市場準備</li>
+                <li>中長期成長藍圖</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-dayang" class="why-section section-light">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Why Dayang</p>
+          <h2 class="section-title">為什麼選擇大揚</h2>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <p class="why-number">01</p>
+            <h3 class="why-title">厚實的專業基礎</h3>
+            <p class="why-text">
+              以深厚的專業為根，結合金融、策略與市場洞察，讓每一項決策更有依據。
+            </p>
+          </article>
+
+          <article class="why-card">
+            <p class="why-number">02</p>
+            <h3 class="why-title">突破界限的勇氣</h3>
+            <p class="why-text">
+              不侷限於既有框架，以開放思維與創新行動探索更多成長可能。
+            </p>
+          </article>
+
+          <article class="why-card">
+            <p class="why-number">03</p>
+            <h3 class="why-title">值得信賴的陪伴</h3>
+            <p class="why-text">
+              重視長期同行，以誠信與責任感，成為企業穩定前行的重要夥伴。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section section-light-alt">
+      <div class="container split-layout about-layout">
+        <div class="split-intro">
+          <p class="eyebrow">About Dayang</p>
+          <h2 class="section-title">關於大揚</h2>
+        </div>
+
+        <div class="about-content">
+          <p class="about-text">
+            大揚策略投資顧問是一間以策略、金融與資源整合為核心的投資策略顧問公司。
+            我們相信，唯有結合專業、洞察與穩健執行，企業才能在快速變動的市場中建立長期優勢。
+            從經營基礎盤點到成長規劃、資本布局與轉型升級，大揚陪伴企業看清方向，走得更遠。
+          </p>
+
+          <div class="about-actions">
+            <a href="#contact" class="btn btn-primary">認識大揚</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-dark">
+      <div class="container contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h2 class="section-title">歡迎與我們展開下一段成長航程</h2>
+          <p class="section-description">
+            若您有財務審核、策略規劃、資源整合、企業 E 化、募資、IPO 輔導
+            或政府補助顧問等需求，歡迎留下資訊，我們將儘快與您聯繫。
+          </p>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form class="contact-form">
+            <div class="form-row">
+              <label for="name">姓名</label>
+              <input type="text" id="name" name="name" placeholder="請輸入您的姓名" />
+            </div>
+
+            <div class="form-row">
+              <label for="company">公司名稱</label>
+              <input type="text" id="company" name="company" placeholder="請輸入公司名稱" />
+            </div>
+
+            <div class="form-row">
+              <label for="phone">聯絡電話</label>
+              <input type="tel" id="phone" name="phone" placeholder="請輸入聯絡電話" />
+            </div>
+
+            <div class="form-row">
+              <label for="email">電子郵件</label>
+              <input type="email" id="email" name="email" placeholder="請輸入電子郵件" />
+            </div>
+
+            <div class="form-row">
+              <label for="message">需求說明</label>
+              <textarea id="message" name="message" rows="5" placeholder="請簡述您的需求"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">送出洽詢</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-brand-name">大揚策略投資顧問</p>
+        <p class="footer-brand-tagline">Sail Your Success</p>
+        <p class="footer-brand-text">以專業與洞察，陪伴企業穩健前行。</p>
+      </div>
+
+      <div class="footer-nav-wrap">
+        <p class="footer-heading">快速連結</p>
+        <ul class="footer-nav">
+          <li><a href="#hero">首頁</a></li>
+          <li><a href="#about">關於大揚</a></li>
+          <li><a href="#services">專業服務</a></li>
+          <li><a href="#contact">聯絡我們</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <p class="footer-heading">聯絡資訊</p>
+        <p>電話：(02) 8978-1881</p>
+        <p>Email：info@dayangsic.com</p>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Dayang Strategy Investment Consulting. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
