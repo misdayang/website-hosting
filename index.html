@@ -1474,32 +1474,39 @@
         </div>
 
         <div class="contact-form-wrap reveal">
-          <form class="contact-form">
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="大揚官網新洽詢" />
+            <input type="hidden" name="_language" value="zh-Hant" />
+          
             <div class="form-row">
               <label for="name">姓名</label>
-              <input type="text" id="name" name="name" placeholder="請輸入您的姓名" />
+              <input type="text" id="name" name="name" placeholder="請輸入您的姓名" required />
             </div>
-
+          
             <div class="form-row">
               <label for="company">公司名稱</label>
               <input type="text" id="company" name="company" placeholder="請輸入公司名稱" />
             </div>
-
+          
             <div class="form-row">
               <label for="phone">聯絡電話</label>
               <input type="tel" id="phone" name="phone" placeholder="請輸入聯絡電話" />
             </div>
-
+          
             <div class="form-row">
               <label for="email">電子郵件</label>
-              <input type="email" id="email" name="email" placeholder="請輸入電子郵件" />
+              <input type="email" id="email" name="email" placeholder="請輸入電子郵件" required />
             </div>
-
+          
             <div class="form-row">
               <label for="message">需求說明</label>
-              <textarea id="message" name="message" rows="5" placeholder="請簡述您的需求"></textarea>
+              <textarea id="message" name="message" rows="5" placeholder="請簡述您的需求" required></textarea>
             </div>
-
+          
             <div class="form-actions">
               <button type="submit" class="btn btn-primary">送出洽詢</button>
             </div>
@@ -1530,9 +1537,9 @@
 
       <div class="footer-contact">
         <p class="footer-heading">聯絡資訊</p>
-        <p>電話：__________</p>
-        <p>Email：__________</p>
-        <p>地址：__________</p>
+        <p>電話：(02) 8978-1881</p>
+        <p>Email：info@dayangsic.com</p>
+        
       </div>
     </div>
 
@@ -1591,11 +1598,7 @@
 
     revealEls.forEach(el => observer.observe(el));
 
-    const contactForm = document.querySelector(".contact-form");
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("表單送出功能下一步可接 EmailJS、Formspree、Netlify Forms 或後端 API。");
-    });
+    
   </script>
 </body>
 </html>
